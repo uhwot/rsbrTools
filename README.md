@@ -15,7 +15,7 @@ run `rsbrTools --help` for full usage info
 `rsbrTools pack ./directory ./pak.obb`
 
 ### convert a .atc texture to .png and back
-`rsbrTools atcdecode ./texture.atc ./decoded.png`
+`rsbrTools atcdecode ./texture.atc ./decoded.png`\
 `rsbrTools atcencode ./texture.png ./encoded.atc`
 
 ## thanks :)
