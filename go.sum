@@ -1,0 +1,6 @@
+github.com/4kills/go-libdeflate/v2 v2.2.2 h1:74xDDZGFnPNYGi0hinYIu6rnWBk6kTpuPgXzITxgiB8=
+github.com/4kills/go-libdeflate/v2 v2.2.2/go.mod h1:hyouZv4OAhHaaMpYuejstUN0xOg8mA+yy75WE3Ty6SM=
+github.com/urfave/cli/v3 v3.6.2 h1:lQuqiPrZ1cIz8hz+HcrG0TNZFxU70dPZ3Yl+pSrH9A8=
+github.com/urfave/cli/v3 v3.6.2/go.mod h1:ysVLtOEmg2tOy6PknnYVhDoouyC/6N42TMeoMzskhso=
+github.com/urfave/cli/v3 v3.7.0 h1:AGSnbUyjtLiM+WJUb4dzXKldl/gL+F8OwmRDtVr6g2U=
+github.com/urfave/cli/v3 v3.7.0/go.mod h1:ysVLtOEmg2tOy6PknnYVhDoouyC/6N42TMeoMzskhso=
