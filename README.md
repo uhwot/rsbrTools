@@ -19,4 +19,5 @@ run `rsbrTools --help` for full usage info
 `rsbrTools atcencode ./texture.png ./encoded.atc`
 
 ## thanks :)
-[Ekey](https://github.com/Ekey) for making [RSBR.PAK.Tool](https://github.com/Ekey/RSBR.PAK.Tool)
+[Ekey](https://github.com/Ekey) for making [RSBR.PAK.Tool](https://github.com/Ekey/RSBR.PAK.Tool)\
+ETC1 decoder code is based off of [texture2ddecoder](https://github.com/K0lb3/texture2ddecoder)
