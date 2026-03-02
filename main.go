@@ -151,6 +151,36 @@ func main() {
 					return nil
 				},
 			},
+			{
+				Name:    "modeltextures",
+				Aliases: []string{"m"},
+				Usage:   "extracts textures from a .adrenomodel file",
+				Arguments: []cli.Argument{
+					&cli.StringArg{Name: "<model file>"},
+					&cli.StringArg{Name: "[output path]", Value: "model_textures"},
+				},
+				Flags: []cli.Flag{
+					&cli.BoolFlag{
+						Name:    "raw",
+						Aliases: []string{"r"},
+						Usage:   "extract raw ATC textures",
+					},
+				},
+				Action: func(ctx context.Context, cmd *cli.Command) error {
+					modelPath := cmd.StringArg("<model file>")
+					if modelPath == "" {
+						return fmt.Errorf("model file path not specified")
+					}
+
+					model, err := os.Open(modelPath)
+					check(err)
+					defer model.Close()
+
+					handleModelTextures(model, cmd.StringArg("[output path]"), !cmd.Bool("raw"))
+
+					return nil
+				},
+			},
 		},
 	}
 

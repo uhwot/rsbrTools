@@ -1,5 +1,7 @@
 .idea
-unpacked
-rsbrTools
-*.png
 dist/
+
+unpacked
+model_textures
+*.png
+rsbrTools

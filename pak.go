@@ -133,32 +133,41 @@ func unpack(pakPath string, outPath string, convert bool, pathListTxt string) {
 			}
 		}
 
-		if convert && strings.HasSuffix(path, ".atc") {
-			reader := bytes.NewReader(data)
-			img := readTexture(reader)
+		if convert {
+			if strings.HasSuffix(path, ".atc") {
+				reader := bytes.NewReader(data)
+				img := readTexture(reader)
 
-			pathWithoutExt := strings.TrimSuffix(path, ".atc")
-			atlasPath := pathWithoutExt + ".atlas"
-			atlasCrc := PakStringCrc32(atlasPath)
+				pathWithoutExt := strings.TrimSuffix(path, ".atc")
+				atlasPath := pathWithoutExt + ".atlas"
+				atlasCrc := PakStringCrc32(atlasPath)
 
-			// this is probably not well optimized. too bad!
-			foundAtlas := false
-			for _, entry := range entries {
-				if entry.Crc32 == atlasCrc {
-					atlasData := getFileData(pak, entry)
-					handleAtlas(img, atlasData, filepath.Join(outPath, pathWithoutExt))
+				// this is probably not well optimized. too bad!
+				foundAtlas := false
+				for _, entry := range entries {
+					if entry.Crc32 == atlasCrc {
+						atlasData := getFileData(pak, entry)
+						handleAtlas(img, atlasData, filepath.Join(outPath, pathWithoutExt))
 
-					foundAtlas = true
-					break
+						foundAtlas = true
+						break
+					}
 				}
-			}
 
-			if foundAtlas {
-				continue
-			}
+				if foundAtlas {
+					continue
+				}
 
-			data = convertImageToPng(img)
-			path = pathWithoutExt + ".png"
+				data = convertImageToPng(img)
+				path = pathWithoutExt + ".png"
+			} else if strings.HasSuffix(path, ".adrenomodel") {
+				reader := bytes.NewReader(data)
+
+				texturesPath := filepath.Join(outPath, path)
+				texturesPath = fmt.Sprintf("%s_textures", texturesPath)
+
+				handleModelTextures(reader, texturesPath, true)
+			}
 		}
 
 		path = filepath.Join(outPath, path)
